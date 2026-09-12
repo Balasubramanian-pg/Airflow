@@ -53,3 +53,28 @@
 * Clearing failed task states and managing downstream dependencies
 * Triggering manual DAG runs with custom configuration payloads (`conf`)
 * Monitoring run durations and graph states via the Grid/Graph views
+
+## Advanced Production & Flow Control
+
+### Sensors & Deferrable Operators
+* Using standard sensors (e.g., `S3KeySensor`, `HttpSensor`) to wait for external conditions
+* Understanding poke mode versus reschedule mode for worker resource conservation
+* Leveraging asynchronous Deferrable Operators to drastically reduce memory and CPU overhead
+
+
+### Branching & Dynamic Flow
+* Implementing conditional logic using `BranchPythonOperator` or TaskFlow conditional returns
+* Configuring complex `trigger_rules` (e.g., `all_done`, `one_failed`, `none_failed_min_one_success`) for error handling paths
+* Generating tasks and DAGs dynamically at runtime based on external configs or data
+
+
+### Resource Management & Variables
+* Using Airflow Pools to throttle concurrent tasks and protect downstream database limits
+* Managing global configurations securely with Airflow Variables or environment secrets
+* Leveraging Jinja templating macros for dynamic parameters inside operators
+
+
+### Production Architecture & Testing
+* Understanding the role of core components (Scheduler, Metadata Database, Webserver, and Workers/Executors)
+* Writing unit tests for DAG structure and task logic using pytest
+* Avoiding common anti-patterns like heavy computation in top-level DAG parsing code
