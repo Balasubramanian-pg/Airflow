@@ -78,3 +78,24 @@
 * Understanding the role of core components (Scheduler, Metadata Database, Webserver, and Workers/Executors)
 * Writing unit tests for DAG structure and task logic using pytest
 * Avoiding common anti-patterns like heavy computation in top-level DAG parsing code
+
+## Modern Ecosystem & Advanced Paradigms
+
+### Asset-Driven Scheduling & Data-Centric Pipelines
+* Triggering DAGs based on dataset or asset updates (`@asset` / datasets functionality) rather than rigid cron schedules
+* Using cross-DAG dependencies driven by external data changes instead of explicit external task sensors
+
+
+### Human-in-the-Loop (HITL) & Interactive Workflows
+* Implementing deferral states and conditional pauses for manual validation or data steward approvals
+* Reviewing AI/LLM-generated task outputs within the pipeline lifecycle before triggering downstream jobs
+
+
+### DAG Versioning & Traceability
+* Understanding execution-time snapshots tied to immutable structural code definitions
+* Auditing, debugging, and reproducing historical runs safely against specific code versions
+
+
+### CI/CD & Automated Pipeline Testing
+* Writing automated unit tests for structural integrity using `pytest` and DAG validation tests
+* Integrating Git-based version control strategies with continuous integration for seamless deployment workflows
